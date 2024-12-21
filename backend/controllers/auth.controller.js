@@ -76,5 +76,11 @@ export async function signin(req, res) {
 }
 
 export async function signout(req, res) {
-  res.send("Sign out route");
+  try{
+    res.clearCookie("jwt-token");
+    res.status(200).json({ success: true, message: "Logged out succesfully"});
+  } catch( error ){
+    console.log("Error in singout controller", error.message);
+    res.status(500).json({ success: false, message: "Internal server error"});
+  }
 }

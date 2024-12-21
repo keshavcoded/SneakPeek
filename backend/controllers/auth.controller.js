@@ -59,7 +59,7 @@ export async function signup(req, res) {
       image: image,
     });
 
-    generateTokenAndSetCookie(newUser._id,res)
+    generateTokenAndSetCookie(newUser._id, res);
     await newUser.save();
     return res.status(201).json({
       success: true,
@@ -71,16 +71,62 @@ export async function signup(req, res) {
   }
 }
 
+const siginBody = zod.object({
+  email: zod.string().email("Invalid email").min(1, "Email is required"),
+  password: zod.string().min(1, "Password is required"),
+});
+
 export async function signin(req, res) {
-  res.send("Sign in route");
+  try {
+    const { email, password } = req.body;
+    const result = siginBody.safeParse(req.body);
+    if (!result.success) {
+      const errors = result.error.errors.map((err) => ({
+        field: err.path.join("."),
+        message: err.message,
+      }));
+      return res.status(400).json({ success: false, message: errors });
+    }
+
+    const user = await User.findOne({ email: email });
+    if (!user) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Invalid credentials" });
+    }
+
+    const passwordCheck = await bcryptjs.compare(password, user.password);
+
+    if (!passwordCheck) {
+      return res
+        .status(400)
+        .json({ success: false, message: "Invalid credentials" });
+    }
+
+    generateTokenAndSetCookie(user._id, res);
+
+    return res.status(200).json({
+      success: true,
+      user: {
+        ...user._doc,
+        password: "",
+      },
+      message: "Logged in",
+    });
+  } catch (error) {
+    console.log("Error in signin controller", error.message);
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal server error" });
+  }
 }
 
 export async function signout(req, res) {
-  try{
+  try {
     res.clearCookie("jwt-token");
-    res.status(200).json({ success: true, message: "Logged out succesfully"});
-  } catch( error ){
+    res.status(200).json({ success: true, message: "Logged out succesfully" });
+  } catch (error) {
     console.log("Error in singout controller", error.message);
-    res.status(500).json({ success: false, message: "Internal server error"});
+    res.status(500).json({ success: false, message: "Internal server error" });
   }
 }

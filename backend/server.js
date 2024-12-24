@@ -5,11 +5,12 @@ import tvRoutes from "./routes/tv.route.js";
 import { ENV_VARS } from "./config/envVars.js";
 import { connectDB } from "./config/db.js";
 import { authMiddleware } from "./middleware/authMiddleware.js";
-
+import cookieParser from "cookie-parser";
 
 const app = express();
 
 app.use(express.json()); //allows to parse req.body
+app.use(cookieParser());
 
 
 const PORT = ENV_VARS.PORT;

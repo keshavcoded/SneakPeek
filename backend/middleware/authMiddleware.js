@@ -5,7 +5,7 @@ export const authMiddleware = async (req,res,next) => {
     try {
         const token = await req.cookies["jwt-token"];
         if(!token){
-            return res.status(401).json({ success: false, message: "JWT token not found"});
+            return res.status(401).json({ success: false, message: "No token provided"});
         }
         const decoded = jwt.verify(token,ENV_VARS.JWT_SECRET);
         if(!decoded){

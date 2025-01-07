@@ -14,7 +14,7 @@ const SignupPage = () => {
 
   return (
     <div className="hero-bg h-screen w-full">
-      <header className="max-w-6xl mx-auto flex items-center justify-between p-4">
+      <header className="max-w-7xl mx-auto flex items-center justify-between p-4">
         <Link to={"/"}>
           <img src="/logos.png" alt="logo" className="w-60 h-14" />
         </Link>

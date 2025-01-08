@@ -7,8 +7,8 @@ const signupBody = zod.object({
   email: zod.string().email("Invalid Email").min(1, "Email is required"),
   password: zod
     .string()
-    .min(6, "Password must be atleast 6 characters")
-    .min(1, "Password is required"),
+    .min(1, "Password is required")
+    .min(6, "Password must be at least 6 characters"),
   username: zod.string().min(1, "Username is required"),
 });
 

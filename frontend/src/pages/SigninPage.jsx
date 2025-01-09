@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../store/useAuth";
 
 const SigninPage = () => {
 
+  const {signin} = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const signInTrigger = (e) => {
     e.preventDefault();
-    console.log(email,password);
+    signin({email,password});
   }
 
   return (

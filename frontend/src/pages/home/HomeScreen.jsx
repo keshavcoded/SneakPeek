@@ -1,5 +1,12 @@
+import { useAuth } from "../../store/useAuth";
+
 const HomeScreen = () => {
-    return <div className="">HomeScreen</div>
+
+    const {signout} = useAuth();
+    return <div className="">HomeScreen
+    
+    <button onClick={signout}>Logout</button>
+    </div>
 }
 
 export default HomeScreen;

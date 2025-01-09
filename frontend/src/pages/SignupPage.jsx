@@ -1,17 +1,19 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../store/useAuth";
 
 const SignupPage = () => {
-  const {searchParams} = new URL(document.location);
+  const { searchParams } = new URL(document.location);
   const urlEmail = searchParams.get("email");
-  const [email,setEmail] = useState(urlEmail || "");
+  const [email, setEmail] = useState(urlEmail || "");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const { signup } = useAuth();
 
   const signUpTrigger = (e) => {
     e.preventDefault();
-    console.log(email,username,password);
-  }
+    signup({ email, username, password });
+  };
 
   return (
     <div className="hero-bg h-screen w-full">
@@ -38,7 +40,8 @@ const SignupPage = () => {
                 className="w-full px-3 py-2 mt-1 border border-gray-700 rounded-md bg-transparent text-white focus:outline-white"
                 placeholder="you@email.com"
                 id="email"
-                value={email} onChange={e => setEmail(e.target.value)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div>
@@ -53,7 +56,8 @@ const SignupPage = () => {
                 className="w-full px-3 py-2 mt-1 border border-gray-700 rounded-md bg-transparent text-white focus:outline-white"
                 placeholder="Username"
                 id="username"
-                value={username} onChange={e => setUsername(e.target.value)}
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
               ></input>
             </div>
             <div>
@@ -67,15 +71,23 @@ const SignupPage = () => {
                 type="password"
                 className="w-full px-3 py-2 mt-1 border border-gray-700 rounded-md bg-transparent text-white focus:outline-white"
                 placeholder="Password"
-                value={password} onChange={e => setPassword(e.target.value)}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               ></input>
             </div>
 
-            <button className="w-full bg-SneakpeekGreen py-2 text-white font-semibold rounded-md hover:bg-green-800 ">Sign Up</button>
+            <button className="w-full bg-SneakpeekGreen py-2 text-white font-semibold rounded-md hover:bg-green-800 ">
+              Sign Up
+            </button>
           </form>
           <div className="text-center text-gray-400">
             Already a user?{" "}
-            <Link to={"/signin"} className="text-SneakpeekGreen hover:underline">Sign In</Link>
+            <Link
+              to={"/signin"}
+              className="text-SneakpeekGreen hover:underline"
+            >
+              Sign In
+            </Link>
           </div>
         </div>
       </div>

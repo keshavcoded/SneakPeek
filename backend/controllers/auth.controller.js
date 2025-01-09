@@ -4,7 +4,7 @@ import { User } from "../models/user.model.js";
 import { generateTokenAndSetCookie } from "../utils/generateToken.js";
 
 const signupBody = zod.object({
-  email: zod.string().email("Invalid Email").min(1, "Email is required"),
+  email: zod.string().min(1, "Email is required").email("Invalid Email"),
   password: zod
     .string()
     .min(1, "Password is required")

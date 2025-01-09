@@ -130,3 +130,12 @@ export async function signout(req, res) {
     res.status(500).json({ success: false, message: "Internal server error" });
   }
 }
+
+
+export async function authUserCheck(req,res){
+  try{
+    return res.status(200).json({ success: true, user: req.user })
+  } catch (e){
+    return res.status(500).json({ success: false, message: "Internal server error"});
+  }
+}

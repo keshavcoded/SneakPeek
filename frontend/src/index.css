@@ -23,3 +23,18 @@
     rgba(6, 6, 6, 1) 100%
   );
 }
+
+.animation {
+  animation: animation 2s infinite linear;
+  background: linear-gradient(to right, #2c2c2c 4%, #333 25%, #2c2c2c 36%);
+  background-size: 1000px 100%;
+}
+
+@keyframes animation {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 100px 0;
+  }
+}

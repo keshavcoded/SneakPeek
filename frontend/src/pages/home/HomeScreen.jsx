@@ -1,12 +1,15 @@
-import { useAuth } from "../../store/useAuth";
+import Navbar from "../../components/Navbar";
+
 
 const HomeScreen = () => {
+  return (
+    <div>
+      <div className="relative h-screen text-white bg-black">
+        <Navbar/>
 
-    const {signout} = useAuth();
-    return <div className="">HomeScreen
-    
-    <button onClick={signout}>Logout</button>
+      </div>
     </div>
-}
+  );
+};
 
 export default HomeScreen;

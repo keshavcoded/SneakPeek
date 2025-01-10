@@ -93,7 +93,7 @@ export async function getMoviebyCategory(req, res) {
       `https://api.themoviedb.org/3/movie/${category}?language=en-US&page=1`
     );
 
-    return res.status(200).json({ success: true, data: data.results });
+    return res.status(200).json({ success: true, content: data.results });
   } catch (error) {
     if (error.message.includes("404")) {
       return res.status(404).send(null);

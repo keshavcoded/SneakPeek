@@ -55,7 +55,7 @@ export async function getDetailsTV(req, res) {
       return res.status(404).send(null);
     }
     console.log(
-      "Error while fetching tv details: tvv contoller",
+      "Error while fetching tv details: tv contoller",
       error.message
     );
     return res
@@ -70,7 +70,7 @@ export async function getSimilarTV(req, res) {
     const data = await fetchFromAPI(
       `https://api.themoviedb.org/3/tv/${id}/similar?language=en-US&page=1`
     );
-    return res.status(200).json({ success: true, similarShow: data.results });
+    return res.status(200).json({ success: true, similarContent: data.results });
   } catch (error) {
     console.log(
       "Error while fetching smilar tv : tv controller",

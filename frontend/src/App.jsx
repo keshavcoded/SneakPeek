@@ -6,6 +6,7 @@ import { Toaster } from "react-hot-toast";
 import { useAuth } from "./store/useAuth";
 import { useEffect } from "react";
 import { Loader2 } from "lucide-react";
+import WatchPage from "./pages/WatchPage";
 
 function App() {
   const { user, authUserCheck, isCheckingAuth } = useAuth();
@@ -37,8 +38,14 @@ function App() {
           path="/signup"
           element={!user ? <SignupPage /> : <Navigate to={"/"} />}
         />
+        <Route
+          path="/watch/:id"
+          element={user ? <WatchPage/> : <Navigate to={"/signin"} />}
+        />
       </Routes>
-      <Toaster toastOptions={{style:{background: "#333", color:"#fff"}}} />
+      <Toaster
+        toastOptions={{ style: { background: "#333", color: "#fff" } }}
+      />
     </>
   );
 }

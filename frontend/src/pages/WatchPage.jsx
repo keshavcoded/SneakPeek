@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useContent } from "../store/useContent";
 import axios from "axios";
 import Navbar from "../components/Navbar";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const WatchPage = () => {
   const { id } = useParams();
@@ -64,10 +64,17 @@ const WatchPage = () => {
     getContentDetails();
   }, [contentType, id]);
 
-  console.log("trailers", trailers);
-  console.log("similar", similarContent);
-  console.log("details", contentDetails);
+  const goPrev = () => {
+    if (currentTrailerIdx > 0) {
+      setcurrentTrailerIdx(currentTrailerIdx - 1);
+    }
+  };
 
+  const goNext = () => {
+    if (currentTrailerIdx < trailers.length - 1) {
+      setcurrentTrailerIdx(currentTrailerIdx + 1);
+    }
+  };
   return (
     <div className="bg-black min-h-screen text-white">
       <Navbar />
@@ -76,10 +83,23 @@ const WatchPage = () => {
           <div className="flex justify-between items-center mb-4">
             <button
               className={`bg-gray-500/70 hover-bg-gray-500 text-white py-2 px-4 rounded ${
-                currentTrailerIdx === 0 ? "hidden" : ""
+                currentTrailerIdx === 0 ? "cursor-not-allowed opacity-60" : ""
               }`}
+              disabled={currentTrailerIdx === 0}
+              onClick={goPrev}
             >
               <ChevronLeft size={24} />
+            </button>
+            <button
+              className={`bg-gray-500/70 hover-bg-gray-500 text-white py-2 px-4 rounded ${
+                currentTrailerIdx === trailers.length - 1
+                  ? "cursor-not-allowed opacity-60"
+                  : ""
+              }`}
+              disabled={currentTrailerIdx === trailers.length - 1}
+              onClick={goNext}
+            >
+              <ChevronRight size={24} />
             </button>
           </div>
         )}

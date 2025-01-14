@@ -5,6 +5,15 @@ import axios from "axios";
 import Navbar from "../components/Navbar";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import ReactPlayer from "react-player";
+import { BASE_URL } from "../utils/constants";
+
+const releaseDateConvert = (date) => {
+  return new Date(date).toLocaleDateString("en-US", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+};
 
 const WatchPage = () => {
   const { id } = useParams();
@@ -114,6 +123,31 @@ const WatchPage = () => {
               url={`https://www.youtube.com/watch?v=${trailers[currentTrailerIdx].key}`}
             />
           )}
+        </div>
+        {/* movie details */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-20 max-w-6xl mx-auto">
+          <div className="mb-4 md:mb-0">
+            <h2 className="text-5xl font-bold text-balance">
+              {contentDetails?.title || contentDetails?.name}
+            </h2>
+            <p className="mt-2 text-lg">
+              {releaseDateConvert(
+                contentDetails?.release_date || contentDetails?.first_air_date
+              )}{" "}
+              |{" "}
+              {contentDetails?.adult ? (
+                <span className="text-red-700">A</span>
+              ) : (
+                <span className="text-green-700">PG-13</span>
+              )}{" "}
+            </p>
+            <p className="mt-4 text-lg">{contentDetails?.overview}</p>
+          </div>
+          <img
+            src={BASE_URL + contentDetails.poster_path}
+            alt="poster-image"
+            className="max-h-[600px] rounded-md"
+          />
         </div>
       </div>
     </div>

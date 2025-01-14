@@ -7,6 +7,7 @@ import { useAuth } from "./store/useAuth";
 import { useEffect } from "react";
 import { Loader2 } from "lucide-react";
 import WatchPage from "./pages/WatchPage";
+import MoviePage from "./pages/MoviePage";
 
 function App() {
   const { user, authUserCheck, isCheckingAuth } = useAuth();
@@ -40,7 +41,11 @@ function App() {
         />
         <Route
           path="/watch/:id"
-          element={user ? <WatchPage/> : <Navigate to={"/signin"} />}
+          element={user ? <WatchPage /> : <Navigate to={"/signin"} />}
+        />
+        <Route
+          path="/watchmovie/:id"
+          element={user ? <MoviePage /> : <Navigate to={"/signin"} />}
         />
       </Routes>
       <Toaster

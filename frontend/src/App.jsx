@@ -6,8 +6,8 @@ import { Toaster } from "react-hot-toast";
 import { useAuth } from "./store/useAuth";
 import { useEffect } from "react";
 import { Loader2 } from "lucide-react";
-import WatchPage from "./pages/WatchPage";
 import MoviePage from "./pages/MoviePage";
+import InfoPage from "./pages/InfoPage";
 
 function App() {
   const { user, authUserCheck, isCheckingAuth } = useAuth();
@@ -40,8 +40,8 @@ function App() {
           element={!user ? <SignupPage /> : <Navigate to={"/"} />}
         />
         <Route
-          path="/watch/:id"
-          element={user ? <WatchPage /> : <Navigate to={"/signin"} />}
+          path="/info/:id"
+          element={user ? <InfoPage /> : <Navigate to={"/signin"} />}
         />
         <Route
           path="/watchmovie/:id"

@@ -62,14 +62,14 @@ const HomeScreen = () => {
           </div>
           <div className="flex mt-8">
             <Link
-              to={contentType === "movie"? `/watchmovie/${trendingContent?.id}`: `/watch/${trendingContent?.id}`}
+              to={contentType === "movie"? `/watchmovie/${trendingContent?.id}`: `/info/${trendingContent?.id}`}
               className="bg-white text-black font-bold py-2 px-4 rounded mr-4 flex items-center hover:bg-white/80"
             >
               <Play className="size-6 mr-2 fill-black" />
               Play
             </Link>
             <Link
-              to={`/watch/${trendingContent?.id}`}
+              to={`/info/${trendingContent?.id}`}
               className="bg-gray-500/50 hover:bg-gray-500 text-white py-2 px-4 flex items-center rounded"
             >
               <Info className="size-6 mr-2" /> More Info

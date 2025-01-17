@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { Loader2 } from "lucide-react";
 import MoviePage from "./pages/MoviePage";
 import InfoPage from "./pages/InfoPage";
+import SearchPage from "./pages/SearchPage";
 
 function App() {
   const { user, authUserCheck, isCheckingAuth } = useAuth();
@@ -46,6 +47,10 @@ function App() {
         <Route
           path="/watchmovie/:id"
           element={user ? <MoviePage /> : <Navigate to={"/signin"} />}
+        />
+        <Route
+          path="/search"
+          element={user ? <SearchPage/> : <Navigate to={"/signin"} />}
         />
       </Routes>
       <Toaster

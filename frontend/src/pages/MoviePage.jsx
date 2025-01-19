@@ -6,7 +6,7 @@ import Navbar from "../components/Navbar";
 import releaseDateConvert from "../utils/dateConvert";
 import { BASE_URL, SMALL_BASE_URL } from "../utils/constants";
 import Skeleton from "../components/Skeleton";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Info } from "lucide-react";
 
 const MoviePage = () => {
   const { id } = useParams();
@@ -16,7 +16,6 @@ const MoviePage = () => {
   const [loading, setLoading] = useState(true);
   const scrollRef = useRef(null);
   const [showArrows, setShowArrows] = useState(false);
-
 
   useEffect(() => {
     const getSimilarContent = async () => {
@@ -69,9 +68,11 @@ const MoviePage = () => {
   };
 
   if (loading) {
-    return <div className="min-h-screen bg-black p-10">
-      <Skeleton/>
-    </div>;
+    return (
+      <div className="min-h-screen bg-black p-10">
+        <Skeleton />
+      </div>
+    );
   }
 
   return (
@@ -106,6 +107,14 @@ const MoviePage = () => {
               )}{" "}
             </p>
             <p className="mt-4 text-lg">{contentDetails?.overview}</p>
+            <div className="flex mt-8">
+              <Link
+                to={`/info/${contentDetails?.id}`}
+                className="bg-gray-500/50 hover:bg-gray-500 text-white py-2 px-4 flex items-center rounded transition-transform duration-300 ease-in-out hover:scale-105"
+              >
+                <Info className="size-6 mr-2" /> More Info
+              </Link>
+            </div>
           </div>
           <img
             src={BASE_URL + contentDetails.poster_path}

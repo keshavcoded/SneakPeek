@@ -171,7 +171,7 @@ const InfoPage = () => {
                     ? `/watchmovie/${contentDetails?.id}`
                     : `/info/${contentDetails?.id}`
                 }
-                className="bg-white text-black font-bold py-2 px-4 rounded mr-4 flex items-center hover:bg-white/80"
+                className="bg-white text-black font-bold py-2 px-4 rounded mr-4 flex items-center hover:bg-white/80 transition-transform duration-300 ease-in-out hover:scale-105"
               >
                 <Play className="size-6 mr-2 fill-black" />
                 Play

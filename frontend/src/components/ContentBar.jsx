@@ -50,7 +50,7 @@ const ContentBar = ({ category }) => {
         {content.map((item) => {
           return (
             <Link
-              to={`/watch/${item.id}`}
+              to={`/info/${item.id}`}
               key={item.id}
               className="min-w-[250px] relative group"
             >

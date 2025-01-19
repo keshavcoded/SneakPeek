@@ -35,12 +35,12 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="flex gap-2 items-center z-50">
+      <div className="flex gap-4 items-center z-50">
         <Link to={"/search"}>
-          <Search className="size-7 cursor-pointer transition-transform duration-300 ease-in-out group-hover:scale-125" />
+          <Search className="size-7 cursor-pointer transition-transform duration-300 ease-in-out hover:scale-125" />
         </Link>
-        <img src={user.image} alt="profile-pic" className="h-8 rounded cursor-pointer"></img>
-        <LogOut className="size-7 cursor-pointer" onClick={signout}/>
+        <img src={user.image} alt="profile-pic" className="h-8 rounded cursor-pointer transition-transform duration-300 ease-in-out hover:scale-125"></img>
+        <LogOut className="size-7 cursor-pointer transition-transform duration-300 ease-in-out hover:scale-125" onClick={signout}/>
         <div className="sm:hidden">
             <Menu className="size-7 cursor-pointer" onClick={toggleMobileMenu}/>
         </div>

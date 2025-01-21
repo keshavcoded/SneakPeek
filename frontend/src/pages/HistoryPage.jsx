@@ -34,8 +34,13 @@ const HistoryPage = () => {
 
   useEffect(() => {
     const getHistory = async () => {
-      const response = await axios.get(`/api/v1/search/history`);
-      setSearchHistory(response.data.content);
+      try {
+        const response = await axios.get(`/api/v1/search/history`);
+        setSearchHistory(response.data.content);
+      } catch (error) {
+        console.log(error);
+        setSearchHistory([]);
+      }
     };
     getHistory();
   }, []);

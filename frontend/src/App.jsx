@@ -9,6 +9,7 @@ import { Loader2 } from "lucide-react";
 import MoviePage from "./pages/MoviePage";
 import InfoPage from "./pages/InfoPage";
 import SearchPage from "./pages/SearchPage";
+import HistoryPage from "./pages/HistoryPage";
 
 function App() {
   const { user, authUserCheck, isCheckingAuth } = useAuth();
@@ -50,7 +51,11 @@ function App() {
         />
         <Route
           path="/search"
-          element={user ? <SearchPage/> : <Navigate to={"/signin"} />}
+          element={user ? <SearchPage /> : <Navigate to={"/signin"} />}
+        />
+        <Route
+          path="/history"
+          element={user ? <HistoryPage /> : <Navigate to={"/signin"} />}
         />
       </Routes>
       <Toaster

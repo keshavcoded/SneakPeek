@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import { SMALL_BASE_URL } from "../utils/constants";
+import { Trash2 } from "lucide-react";
+import toast from "react-hot-toast";
 
 const dateFormat = (dateString) => {
   const date = new Date(dateString);
@@ -37,12 +39,23 @@ const HistoryPage = () => {
     };
     getHistory();
   }, []);
+
+  const deleteHistory = async (his) => {
+    try {
+      await axios.delete(`/api/v1/search/history/${his.id}`);
+      setSearchHistory(searchHistory.filter((item) => item.id !== his.id));
+    } catch (err) {
+      toast.error("An error occured");
+      console.log("Error while deleting history", err);
+    }
+  };
+
   if (searchHistory?.length === 0) {
     return (
       <div className="bg-black min-h-screen text-white">
         <Navbar />
         <div className="max-w-6xl mx-auto px-4 py-8">
-          <h1 className="text-3-xl font-bold mb-8">Search History</h1>
+          <h1 className="text-3xl font-bold mb-8">Search History</h1>
           <div className="flex justify-center items-center h-96">
             <p className="text-xl">No search history found</p>
           </div>
@@ -54,7 +67,7 @@ const HistoryPage = () => {
     <div className="bg-black min-h-screen text-white">
       <Navbar />
       <div className="max-w-6xl mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-8">Search history</h1>
+        <h1 className="text-3xl font-bold mb-8">Search History</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {searchHistory?.map((his) => {
             return (
@@ -88,6 +101,10 @@ const HistoryPage = () => {
                     ? "TV show"
                     : "Actor"}
                 </span>
+                <Trash2
+                  className="size-5 ml-4 cursor-pointer hover:text-red-700 transition-transform duration-300 ease-in-out hover:scale-110"
+                  onClick={() => deleteHistory(his)}
+                />
               </div>
             );
           })}

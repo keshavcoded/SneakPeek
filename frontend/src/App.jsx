@@ -10,6 +10,7 @@ import MoviePage from "./pages/MoviePage";
 import InfoPage from "./pages/InfoPage";
 import SearchPage from "./pages/SearchPage";
 import HistoryPage from "./pages/HistoryPage";
+import NotFoundPage from "./pages/404";
 
 function App() {
   const { user, authUserCheck, isCheckingAuth } = useAuth();
@@ -57,6 +58,7 @@ function App() {
           path="/history"
           element={user ? <HistoryPage /> : <Navigate to={"/signin"} />}
         />
+        <Route path="/*" element={<NotFoundPage />} />
       </Routes>
       <Toaster
         toastOptions={{ style: { background: "#333", color: "#fff" } }}

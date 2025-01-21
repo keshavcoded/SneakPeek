@@ -14,6 +14,12 @@
   background-size: cover;
 }
 
+.notfound-bg {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)),
+  url("404.png");
+background-size: cover;;
+}
+
 .section-bg {
   background: rgb(0, 0, 0);
   background: linear-gradient(

@@ -9,7 +9,7 @@ import { BASE_URL } from "../utils/constants";
 
 const SearchPage = () => {
   const [searchState, setSearchstate] = useState("movie");
-  const { contentType, setContentType } = useContent();
+  const { setContentType } = useContent();
   const [results, setResults] = useState([]);
   const [searchValue, setSearchValue] = useState([]);
 
@@ -117,12 +117,9 @@ const SearchPage = () => {
                   </Link>
                 ) : (
                   <Link
-                    to={
-                      contentType === "movie"
-                        ? `/watchmovie/` + result.id
-                        : `/info/` + result.id
-                    }
+                    to={`/info/` + result.id}
                     className="flex flex-col items-center group"
+                    onClick={() => setContentType(searchState)}
                   >
                     <img
                       src={BASE_URL + result.poster_path}

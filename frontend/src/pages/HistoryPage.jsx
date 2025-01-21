@@ -82,7 +82,11 @@ const HistoryPage = () => {
                       : "bg-blue-600"
                   }`}
                 >
-                  {his.searchType}
+                  {his.searchType === "movie"
+                    ? "Movie"
+                    : his.searchType === "tv"
+                    ? "TV show"
+                    : "Actor"}
                 </span>
               </div>
             );

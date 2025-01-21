@@ -12,6 +12,16 @@ export async function searchPerson(req, res) {
       return res.status(404).send(null);
     }
 
+    const currPerson = data.results[0];
+    const duplicateEntry = await User.exists({
+      _id: req.user._id,
+      "searchHistory.id": currPerson.id,
+    });
+
+    if (duplicateEntry) {
+      return res.status(200).json({ success: true, content: data.results });
+    }
+
     await User.findByIdAndUpdate(req.user._id, {
       $push: {
         searchHistory: {
@@ -45,6 +55,16 @@ export async function searchMovies(req, res) {
       return res.status(404).send(null);
     }
 
+    const currMovie = data.results[0];
+    const duplicateEntry = await User.exists({
+      _id: req.user._id,
+      "searchHistory.id": currMovie.id,
+    });
+
+    if (duplicateEntry) {
+      return res.status(200).json({ success: true, content: data.results });
+    }
+
     await User.findByIdAndUpdate(req.user._id, {
       $push: {
         searchHistory: {
@@ -75,6 +95,16 @@ export async function searchTV(req, res) {
 
     if (data.results.length === 0) {
       return res.status(404).send(null);
+    }
+
+    const currTV = data.results[0];
+    const duplicateEntry = await User.exists({
+      _id: req.user._id,
+      "searchHistory.id": currTV.id,
+    });
+
+    if (duplicateEntry) {
+      return res.status(200).json({ success: true, content: data.results });
     }
 
     await User.findByIdAndUpdate(req.user._id, {

@@ -12,6 +12,7 @@ import SearchPage from "./pages/SearchPage";
 import HistoryPage from "./pages/HistoryPage";
 import NotFoundPage from "./pages/404";
 import TVPage from "./pages/TVPage";
+import Footer from "./components/Footer";
 
 function App() {
   const { user, authUserCheck, isCheckingAuth } = useAuth();
@@ -65,6 +66,7 @@ function App() {
         />
         <Route path="/*" element={<NotFoundPage />} />
       </Routes>
+      <Footer/>
       <Toaster
         toastOptions={{ style: { background: "#333", color: "#fff" } }}
       />

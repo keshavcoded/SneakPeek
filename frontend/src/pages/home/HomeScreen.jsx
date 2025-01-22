@@ -15,7 +15,6 @@ const HomeScreen = () => {
   const { trendingContent } = useGetTrending();
   const { contentType } = useContent();
   const [imageLoading, setImageLoading] = useState(true);
-  console.log("Trending content:", trendingContent);
 
   if (!trendingContent) {
     return (

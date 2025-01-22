@@ -76,7 +76,7 @@ const SignupPage = () => {
               ></input>
             </div>
 
-            <button className="w-full bg-SneakpeekGreen py-2 text-white font-semibold rounded-md hover:bg-green-800 ">
+            <button className="w-full bg-SneakpeekGreen py-2 text-white font-semibold rounded-md hover:bg-green-800 transition-colors duration-300">
               Sign Up
             </button>
           </form>

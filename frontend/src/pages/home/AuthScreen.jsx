@@ -25,7 +25,7 @@ const AuthScreen = () => {
         </Link>
         <Link
           to={"/signin"}
-          className="text-white bg-SneakpeekGreen py-1 px-3 rounded font-medium hover:bg-green-700"
+          className="text-white bg-SneakpeekGreen py-1 px-3 rounded font-medium hover:bg-green-700 transition-colors duration-300"
         >
           Sign In
         </Link>
@@ -52,7 +52,7 @@ const AuthScreen = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           ></input>
-          <button className="bg-SneakpeekGreen rounded font-semibold text-md lg:text-lg px-2 lg:px-6 py-1 md:py-2 flex justify-center items-center hover:bg-green-700">
+          <button className="bg-SneakpeekGreen rounded font-semibold text-md lg:text-lg px-2 lg:px-6 py-1 md:py-2 flex justify-center items-center hover:bg-green-700 transition-colors duration-300">
             Get started <ChevronRight className="size-6 md:size-8" />
           </button>
         </form>

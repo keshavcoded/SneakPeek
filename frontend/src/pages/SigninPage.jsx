@@ -54,7 +54,7 @@ const SigninPage = () => {
                 value={password} onChange={e => setPassword(e.target.value)}
               ></input>
             </div>
-            <button className="w-full bg-SneakpeekGreen rounded-md font-semibold text-white py-2 hover:bg-green-800">Sign In</button>
+            <button className="w-full bg-SneakpeekGreen rounded-md font-semibold text-white py-2 hover:bg-green-800 transition-colors duration-300">Sign In</button>
           </form>
           <div className="text-gray-400 text-center mt-6">
             Don&apos;t have an Account?{" "}

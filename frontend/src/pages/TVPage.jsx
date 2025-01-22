@@ -162,13 +162,13 @@ const TVPage = () => {
             {showEpisodeArrows && (
               <>
                 <button
-                  className="absolute top-1/2 -translate-y-1/2 -left-9 flex items-center justify-center size-12 rounded-full bg-black bg-opacity-50 hover:bg-opacity-75 text-white z-10"
+                  className="absolute top-1/2 -translate-y-1/2 left-10 flex items-center justify-center size-12 rounded-full bg-black bg-opacity-50 hover:bg-opacity-75 text-white z-10"
                   onClick={() => scrollLeft(episodeScrollRef)}
                 >
                   <ChevronLeft size={28} />
                 </button>
                 <button
-                  className="absolute top-1/2 -translate-y-1/2 -right-10 flex items-center justify-center size-12 rounded-full bg-black bg-opacity-50 hover:bg-opacity-75 text-white z-10"
+                  className="absolute top-1/2 -translate-y-1/2 right-10 flex items-center justify-center size-12 rounded-full bg-black bg-opacity-50 hover:bg-opacity-75 text-white z-10"
                   onClick={() => scrollRight(episodeScrollRef)}
                 >
                   <ChevronRight size={28} />

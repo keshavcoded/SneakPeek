@@ -11,6 +11,7 @@ import InfoPage from "./pages/InfoPage";
 import SearchPage from "./pages/SearchPage";
 import HistoryPage from "./pages/HistoryPage";
 import NotFoundPage from "./pages/404";
+import TVPage from "./pages/TVPage";
 
 function App() {
   const { user, authUserCheck, isCheckingAuth } = useAuth();
@@ -57,6 +58,10 @@ function App() {
         <Route
           path="/history"
           element={user ? <HistoryPage /> : <Navigate to={"/signin"} />}
+        />
+        <Route
+          path="/watchtv/:id"
+          element={user ? <TVPage /> : <Navigate to={"/signin"} />}
         />
         <Route path="/*" element={<NotFoundPage />} />
       </Routes>

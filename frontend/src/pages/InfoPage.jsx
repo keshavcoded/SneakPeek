@@ -169,7 +169,7 @@ const InfoPage = () => {
                 to={
                   contentType === "movie"
                     ? `/watchmovie/${contentDetails?.id}`
-                    : `/info/${contentDetails?.id}`
+                    : `/watchtv/${contentDetails?.id}`
                 }
                 className="bg-white text-black font-bold py-2 px-4 rounded mr-4 flex items-center hover:bg-white/80 transition-transform duration-300 ease-in-out hover:scale-105"
               >

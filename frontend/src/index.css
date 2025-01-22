@@ -4,19 +4,19 @@
 
 .hero-bg {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)),
-    url("background.png");
+    url("/background.png");
   background-size: cover;
 }
 
 .home-bg {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.75)),
-    url("background.png");
+    url("/background.png");
   background-size: cover;
 }
 
 .notfound-bg {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)),
-  url("404.png");
+  url("/404.png");
 background-size: cover;;
 }
 

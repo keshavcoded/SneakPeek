@@ -17,7 +17,7 @@ const SigninPage = () => {
     <div className="hero-bg h-screen w-full">
       <header className="max-w-7xl mx-auto flex items-center justify-between p-4">
         <Link to={"/"}>
-          <img src="/logos.png" alt="logo" className="w-60 h-14" />
+          <img src="/logos1.png" alt="logo" className="w-40 sm:w-60 h-10 sm:h-12" />
         </Link>
       </header>
       <div className="flex justify-center items-center mt-20 mx-3">

@@ -111,41 +111,6 @@ const InfoPage = () => {
     <div className="bg-black min-h-screen text-white">
       <Navbar />
       <div className="mx-auto container px-4 py-8 h-full">
-        {trailers?.length > 0 && (
-          <div className="flex justify-between items-center mb-4">
-            <button
-              className={`bg-gray-500/70 hover-bg-gray-500 text-white py-2 px-4 rounded ${
-                currentTrailerIdx === 0 ? "cursor-not-allowed opacity-60" : ""
-              }`}
-              disabled={currentTrailerIdx === 0}
-              onClick={goPrev}
-            >
-              <ChevronLeft size={24} />
-            </button>
-            <button
-              className={`bg-gray-500/70 hover-bg-gray-500 text-white py-2 px-4 rounded ${
-                currentTrailerIdx === trailers.length - 1
-                  ? "cursor-not-allowed opacity-60"
-                  : ""
-              }`}
-              disabled={currentTrailerIdx === trailers.length - 1}
-              onClick={goNext}
-            >
-              <ChevronRight size={24} />
-            </button>
-          </div>
-        )}
-        <div className="aspect-video mb-8 p-2 sm:px-10 md:px-32">
-          {trailers.length > 0 && (
-            <ReactPlayer
-              controls={true}
-              width={"100%"}
-              height={"70vh"}
-              className="mx-auto overflow-hidden rounded-lg"
-              url={`https://www.youtube.com/watch?v=${trailers[currentTrailerIdx].key}`}
-            />
-          )}
-        </div>
         {/* movie details */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-20 max-w-6xl mx-auto">
           <div className="mb-4 md:mb-0">
@@ -184,9 +149,49 @@ const InfoPage = () => {
             className="max-h-[600px] rounded-md"
           />
         </div>
+        <div className="mt-20 max-w-6xl mx-auto">
+          <h3 className="text-3xl font-bold mb-4">
+            Trailers and More
+          </h3>
+          {trailers?.length > 0 && (
+            <div className="flex justify-between items-center mb-4">
+              <button
+                className={`bg-gray-500/70 hover-bg-gray-500 text-white py-2 px-4 rounded ${
+                  currentTrailerIdx === 0 ? "cursor-not-allowed opacity-60" : ""
+                }`}
+                disabled={currentTrailerIdx === 0}
+                onClick={goPrev}
+              >
+                <ChevronLeft size={24} />
+              </button>
+              <button
+                className={`bg-gray-500/70 hover-bg-gray-500 text-white py-2 px-4 rounded ${
+                  currentTrailerIdx === trailers.length - 1
+                    ? "cursor-not-allowed opacity-60"
+                    : ""
+                }`}
+                disabled={currentTrailerIdx === trailers.length - 1}
+                onClick={goNext}
+              >
+                <ChevronRight size={24} />
+              </button>
+            </div>
+          )}
+          <div className="aspect-video mb-8 p-2 sm:px-10 md:px-32">
+            {trailers.length > 0 && (
+              <ReactPlayer
+                controls={true}
+                width={"100%"}
+                height={"70vh"}
+                className="mx-auto overflow-hidden rounded-lg"
+                url={`https://www.youtube.com/watch?v=${trailers[currentTrailerIdx].key}`}
+              />
+            )}
+          </div>
+        </div>
         {similarContent.length > 0 && (
           <div
-            className="mt-12 max-w-6xl mx-auto relative"
+            className="mt-8 max-w-6xl mx-auto relative"
             onMouseEnter={() => setShowArrows(true)}
             onMouseLeave={() => setShowArrows(false)}
           >

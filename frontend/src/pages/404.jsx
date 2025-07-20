@@ -6,7 +6,7 @@ const NotFoundPage = () => {
       <header className="absolute top-0 left-0 p-4 px-28 bg-black w-full">
         <Link to={"/"}>
           <img
-            src="/logos.png"
+            src="/logos1.png"
             alt="logo-img"
             className="w-40 sm:w-60 h-10 sm:h-14"
           />

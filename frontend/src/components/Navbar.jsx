@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { LogOut, Menu, Search } from "lucide-react";
-import { useAuth } from "../store/useAuth"
+import { useAuth } from "../store/useAuth";
 import { useContent } from "../store/useContent";
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState();
-  const {user,signout} = useAuth();
-  const {setContentType} = useContent();
+  const { user, signout } = useAuth();
+  const { setContentType } = useContent();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -16,17 +16,25 @@ const Navbar = () => {
       <div className="flex items-center gap-10 z-50">
         <Link to={"/"}>
           <img
-            src="/logos.png"
+            src="/logos1.png"
             alt="logo"
-            className="w-40 sm:w-60 h-10 sm:h-14"
+            className="w-40 sm:w-60 h-10 sm:h-12"
           ></img>
         </Link>
         {/* desktops */}
         <div className="hidden sm:flex gap-2 items-center">
-          <Link to={"/"} className="hover:text-SneakpeekGreen" onClick={() => setContentType("movie")}>
+          <Link
+            to={"/"}
+            className="hover:text-SneakpeekGreen"
+            onClick={() => setContentType("movie")}
+          >
             Movies
           </Link>
-          <Link to={"/"} className="hover:text-SneakpeekGreen" onClick={() => setContentType("tv")}>
+          <Link
+            to={"/"}
+            className="hover:text-SneakpeekGreen"
+            onClick={() => setContentType("tv")}
+          >
             TV shows
           </Link>
           <Link to={"/history"} className="hover:text-SneakpeekGreen">
@@ -39,10 +47,17 @@ const Navbar = () => {
         <Link to={"/search"}>
           <Search className="size-7 cursor-pointer transition-transform duration-300 ease-in-out hover:scale-125" />
         </Link>
-        <img src={user.image} alt="profile-pic" className="h-8 rounded cursor-pointer transition-transform duration-300 ease-in-out hover:scale-125"></img>
-        <LogOut className="size-7 cursor-pointer transition-transform duration-300 ease-in-out hover:scale-125" onClick={signout}/>
+        <img
+          src={user.image}
+          alt="profile-pic"
+          className="h-8 rounded cursor-pointer transition-transform duration-300 ease-in-out hover:scale-125"
+        ></img>
+        <LogOut
+          className="size-7 cursor-pointer transition-transform duration-300 ease-in-out hover:scale-125"
+          onClick={signout}
+        />
         <div className="sm:hidden">
-            <Menu className="size-7 cursor-pointer" onClick={toggleMobileMenu}/>
+          <Menu className="size-7 cursor-pointer" onClick={toggleMobileMenu} />
         </div>
       </div>
 
@@ -52,14 +67,20 @@ const Navbar = () => {
           <Link
             to={"/"}
             className="block hover:text-SneakpeekGreen p-2"
-            onClick={() => {toggleMobileMenu(); setContentType("movie")}}
+            onClick={() => {
+              toggleMobileMenu();
+              setContentType("movie");
+            }}
           >
             Movies
           </Link>
           <Link
             to={"/"}
             className="block hover:text-SneakpeekGreen p-2"
-            onClick={() => {toggleMobileMenu(); setContentType("tv")}}
+            onClick={() => {
+              toggleMobileMenu();
+              setContentType("tv");
+            }}
           >
             Tv shows
           </Link>

@@ -18,9 +18,9 @@ const AuthScreen = () => {
       <header className="flex-col min-[350px]:flex-row max-w-7xl mx-auto flex items-center justify-between p-4 pb-10">
         <Link to={"/"}>
           <img
-            src="/logos.png"
+            src="/logos1.png"
             alt="sneakpeek-logo"
-            className="w-40 sm:w-60 h-10 sm:h-14"
+            className="w-40 sm:w-60 h-10 sm:h-12"
           />
         </Link>
         <Link
@@ -35,11 +35,11 @@ const AuthScreen = () => {
 
       <div className="flex flex-col items-center justify-center text-center py-40 text-white max-w-4xl mx-auto">
         <h1 className="text-4xl md:text-6xl font-bold mb-5">
-          <span className="text-SneakpeekGreen">Peek</span> into unlimited
-          movies and TV show contents
+          <span className="text-SneakpeekGreen">Stream</span> from your
+          machine. Not your wallet
         </h1>
         <p className="text-sm md:text-xl mb-4">
-          Sign up and watch for free and enjoy.
+          Powered by zero subscriptions.
         </p>
         <form
           className="flex flex-col md:flex-row gap-4 w-1/2"

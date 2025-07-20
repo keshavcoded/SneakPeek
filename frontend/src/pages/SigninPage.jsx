@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../store/useAuth";
 
@@ -7,6 +7,11 @@ const SigninPage = () => {
   const {signin} = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  useEffect(()=> {
+    setEmail("user@localhost.com")
+    setPassword("12345678")
+  },[])
 
   const signInTrigger = (e) => {
     e.preventDefault();
@@ -36,7 +41,7 @@ const SigninPage = () => {
               <input
                 type="email"
                 className="w-full px-3 py-2 mt-1 border border-gray-700 rounded-md bg-transparent text-white focus:outline-white"
-                placeholder="you@example.com"
+                placeholder="Enter your email"
                 value={email} onChange={e => setEmail(e.target.value)}
               ></input>
             </div>
